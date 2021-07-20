@@ -6,7 +6,7 @@ export function Move ( { histories, jumpTo } ) {
             'Go to game start';
         return (
             <li key={ move }>
-                <button onClick={ () => jumpTo( move ) } >{ desc }</button>
+                <button onClick={ () => jumpTo( move ) } className='move'>{ desc }</button>
             </li>
         );
     } );
