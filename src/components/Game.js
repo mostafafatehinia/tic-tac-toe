@@ -6,10 +6,12 @@ import { calculateWinner } from '../utils/calculate';
 import { Move } from './Move';
 import { WinCounter } from './WinCounter';
 
+const initialPlayer = Math.random() < 0.5
+
 export function Game () {
     const [ history, setHistory ] = useState( [ Array( 9 ).fill( null ) ] );
     const [ stepNumber, setStepNumber ] = useState( 0 );
-    const [ isXNext, setIsXNext ] = useState( true );
+    const [ isXNext, setIsXNext ] = useState( initialPlayer );
     const [ messageContent, setMessageContent ] = useState( '' );
     const [ xWinCounter, setXWinCounter ] = useState( () => localStorage.getItem( 'xWins' ) || '0' )
     const [ oWinCounter, setOWinCounter ] = useState( () => localStorage.getItem( 'oWins' ) || '0' )
@@ -39,7 +41,7 @@ export function Game () {
             }
         }
         setMessageContent( message )
-    }, [ history ] )
+    }, [ history, isXNext ] )
 
 
     const handleClick = ( i ) => {
@@ -67,7 +69,13 @@ export function Game () {
         setHistory( ( previusHistory ) => {
             return [ ...previusHistory.slice( 0, step + 1 ) ]
         } )
-        setIsXNext( ( step % 2 ) === 0 )
+        setIsXNext( ( previusState ) => {
+            if ( step % 2 === 0 ) {
+                return previusState
+            } else {
+                return !previusState
+            }
+        } )
     }
     return (
         <>
