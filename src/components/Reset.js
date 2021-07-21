@@ -4,6 +4,7 @@ export function Reset ( { resetHistory, resetIsXNext } ) {
         resetIsXNext( () => {
             return Math.random() < 0.5
         } )
+        document.getElementById( 'confetti-canvas' ).style.visibility = 'hidden';
     }
     return (
         <>

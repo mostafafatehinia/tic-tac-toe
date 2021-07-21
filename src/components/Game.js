@@ -35,6 +35,7 @@ export function Game () {
                     localStorage.setItem( 'oWins', +( oWinCounter ) + 1 )
                     setOWinCounter( () => localStorage.oWins )
                 }
+                document.getElementById( 'confetti-canvas' ).style.visibility = 'visible';
             }
             else {
                 message = 'Next Player : ' + ( isXNext ? 'X' : 'O' );
