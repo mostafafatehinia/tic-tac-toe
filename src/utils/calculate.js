@@ -1,5 +1,5 @@
 export function calculateWinner ( squares ) {
-
+    let winner = false;
     const lines = [
         [ 0, 1, 2 ],
         [ 3, 4, 5 ],
@@ -14,15 +14,13 @@ export function calculateWinner ( squares ) {
     for ( let i = 0; i < lines.length; i++ ) {
         const [ a, b, c ] = lines[ i ];
         if ( squares[ a ] && squares[ a ] === squares[ b ] && squares[ a ] === squares[ c ] ) {
-
+            winner = true;
             return squares[ a ]
         }
     }
-    for ( let i = 0; i < lines.length; i++ ) {
-        const [ a, b, c ] = lines[ i ];
-        if ( !squares.includes( null ) && ( squares[ a ] !== squares[ b ] && squares[ b ] !== squares[ c ] ) ) {
-            return 'Tie'
-        }
+    if ( !winner && !squares.includes( null ) ) {
+        return 'Tie'
     }
+
     return null;
 }
