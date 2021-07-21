@@ -1,3 +1,12 @@
+body {
+	overflow: hidden;
+}
+canvas {
+	position: relative;
+	top: -860px;
+	left: 140px;
+	visibility: hidden;
+}
 .App-header {
 	background-color: #282c34;
 	min-height: 100vh;
@@ -96,5 +105,12 @@ ul {
 	}
 	.move {
 		margin: 3px;
+	}
+	canvas {
+		position: relative;
+		left: -100px;
+		width: 666px;
+		left: 30px;
+		height: 760px;
 	}
 }
