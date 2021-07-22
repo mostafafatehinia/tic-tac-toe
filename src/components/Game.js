@@ -65,7 +65,6 @@ export function Game () {
     }
 
     const jumpTo = ( step ) => {
-        document.getElementById( 'confetti-canvas' ).style.visibility = 'hidden';
         setStepNumber( step )
         setHistory( ( previusHistory ) => {
             return [ ...previusHistory.slice( 0, step + 1 ) ]
